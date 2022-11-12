@@ -50,25 +50,12 @@ class SiswaController extends Controller
             'foto_profil'=> 'image|file|max:1024'
         ]);
 
-        // cek jika ada file gambar yang diupload,maka masukan filenya kedalam file public post-images
 
         if($request->file('foto_profil')){
             $validatedData['foto_profil'] = $request->file('foto_profil')->store('foto-profil');
         }
-        // lalu kita masukan datanya ke database
         Siswa::create($validatedData);
         return redirect('/dashboard/siswa')->with('success','Post telah ditambahkan !');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Siswa  $siswa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Siswa $siswa)
-    {
-        //
     }
 
     /**
@@ -126,9 +113,6 @@ class SiswaController extends Controller
             Storage::delete($siswa->foto_profil);
         }
         $siswa->delete();
-        // return redirect('/dashboard/siswa')->with('success','Post telah dihapus !');
-        // return response()->json([
-        //     'result'=>'success'
-        // ]);
+
     }
 }

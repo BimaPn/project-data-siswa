@@ -25,7 +25,7 @@ Route::post('/register',[RegisterController::class,'store']);
 Route::get('/dashboard/jurusan',[JurusanController::class,'index'])->middleware('auth');
 Route::get('/dashboard/jurusan/{jurusan:slug}',[JurusanController::class,'kelas'])->middleware('auth');
 Route::get('/dashboard/jurusan/{jurusan:slug}/kelas/{kelas:kelas}/siswa',[JurusanController::class,'siswa'])->middleware('auth');
-Route::resource('/dashboard/siswa',SiswaController::class)->middleware('auth');
+Route::resource('/dashboard/siswa',SiswaController::class)->except('show')->middleware('auth');
 
 
 
