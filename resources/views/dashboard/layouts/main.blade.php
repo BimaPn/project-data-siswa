@@ -76,7 +76,7 @@
     
     @include('dashboard.layouts.navbar')  
 
-    <div class="container-fluid kontol">
+    <div class="container-fluid">
       <div class="row">
         @include('dashboard.layouts.slidebar')
     
